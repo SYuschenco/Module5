@@ -1,37 +1,30 @@
 //Отсортировать массив (пузырьком (Bubble),
                                                     // это потом- выбором (Select), вставками (Insert))
 
+import java.util.Arrays;
+
 public class Module5_2 {
 
     public static void main(String[] args) {
-        int[] arr1 = {11, 2, 3, 4, 5, 6, 77, 8, 999};
-        int m = arr1.length;// длинна массива
-        int[] arr2 = new int[m];
-        int e = 0;
+        int[] arr1 = {11, 2, 3, 4, 999, 5, 6, 77, 8};
+        System.out.println("начальный массив");
+        System.out.print(Arrays.toString(arr1));
+        bubleSort(arr1);
+        System.out.println("\nконечный массив");
+        System.out.print(Arrays.toString(bubleSort(arr1)));
+    }
 
-        System.out.println("\nначальный массив\n");
-        for (int i = 0; i < m; i++) {
-            System.out.print(arr1[i] + "  ");
-        }
-
-        for (int j = 0; j < m; j++) {
-
-            for (int i = 0; i < m - j - 1; i++) {
-
+    static int[] bubleSort(int[] arr1) {
+        int tmp;
+        for (int j = 0; j < arr1.length; j++) {
+            for (int i = 0; i < arr1.length - j - 1; i++) {
                 if (arr1[i] > arr1[i + 1]) {
-                    e = arr1[i + 1];
+                    tmp = arr1[i + 1];
                     arr1[i + 1] = arr1[i];
-                    arr1[i] = e;
+                    arr1[i] = tmp;
                 }
             }
         }
-
-        System.out.println();
-        System.out.println("\nконечный массив\n");
-
-        for (int i = 0; i < m; i++) {
-            //	arr1[i]=arr2[i];
-            System.out.print(arr1[i] + "  ");
-        }
+    return arr1;
     }
 }
